@@ -9,10 +9,11 @@ float Xbox7, Ybox7, widthbox7, heightbox7;
 float Xbox8, Ybox8, widthbox8, heightbox8;
 float Xbox9, Ybox9, widthbox9, heightbox9;
 float quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight;
+PFont buttonFont;
 //
 String quitButtonText = "Quit";
-PFont = buttonFont;
-color black=#000000;
+color resetWhite=#000000, blue=#2D49F7, black=#FFFFFF, buttonFill;
+//
 //
 void setup() {
  size(900, 600);
@@ -65,7 +66,10 @@ void setup() {
  quitButtonWidth = width*1/9;
  quitButtonHeight = height*1/12;
  //
- buttonFont = createFont ("", 55);
+ //String[] fontList = PFont.list(); //To list all fonts available on system
+  //println("Start of Console");
+  //printArray(fontList);
+ buttonFont = createFont ("MS Gothic", 55);
  //
 }//End setup
 //
@@ -81,7 +85,19 @@ void draw() {
  rect(Xbox9, Ybox9, widthbox9, heightbox9);
  rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
  //
- text(quitButtonText, quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
+ if (mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight) {
+ buttonFill=resetWhite;
+ } else {
+ buttonFill=black;
+ }
+ //
+ //fill(blue);
+ //textAlign (CENTER,CENTER);
+ //textFont(buttonFont, 25);
+ fill(buttonFill);
+ text(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
+ fill(resetWhite);
+ //fill(resetWhite);
 }//End draw
 //
 void keyPressed() {}//End keyPressed
