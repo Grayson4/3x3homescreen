@@ -8,6 +8,11 @@ float Xbox6, Ybox6, widthbox6, heightbox6;
 float Xbox7, Ybox7, widthbox7, heightbox7;
 float Xbox8, Ybox8, widthbox8, heightbox8;
 float Xbox9, Ybox9, widthbox9, heightbox9;
+float quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight;
+//
+String quitButtonText = "Quit";
+PFont = buttonFont;
+color black=#000000;
 //
 void setup() {
  size(900, 600);
@@ -17,6 +22,8 @@ void setup() {
  int X2theird = width*2/3;
  int Ytheird = height*1/3;
  int Y2theird = height*2/3;
+ int centerX = width*1/2;
+ int centerY = height*1/2;
  Xbox1 = 0;
  Ybox1 = 0;
  widthbox1 = width*1/3;
@@ -53,6 +60,13 @@ void setup() {
  Ybox9  = Y2theird;
  widthbox9  = width*1/3;
  heightbox9 = height*1/3;
+ quitButtonX = Xtheird + 30;
+ quitButtonY = Ytheird + 20;
+ quitButtonWidth = width*1/9;
+ quitButtonHeight = height*1/12;
+ //
+ buttonFont = createFont ("", 55);
+ //
 }//End setup
 //
 void draw() {
@@ -65,10 +79,15 @@ void draw() {
  rect(Xbox7, Ybox7, widthbox7, heightbox7);
  rect(Xbox8, Ybox8, widthbox8, heightbox8);
  rect(Xbox9, Ybox9, widthbox9, heightbox9);
+ rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
+ //
+ text(quitButtonText, quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
 }//End draw
 //
 void keyPressed() {}//End keyPressed
 //
-void mousePressed() {}//End mousePressed
+void mousePressed() {
+ if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ) exit();
+}//End mousePressed
 //
 //End MAIN Program
